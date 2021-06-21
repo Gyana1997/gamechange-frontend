@@ -6,10 +6,12 @@ export default {
     eventdata: {
         "eventname": "",
         "people": "",
-        "date": "",
-        "event-card": "",
+        "date": ""
 
-    }
+    },
+    "eventList": [],
+    "eventDetail": {}
+
 
             
 };

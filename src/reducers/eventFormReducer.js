@@ -1,7 +1,7 @@
 import * as types from '../config/actionTypes';
 import initialState from './initialState';
 
-export default function loginReducer(state = initialState.eventdata, action) {
+export default function eventFormReducer(state = initialState.eventdata, action) {
     switch(action.type) {
         // case types.LOGIN_REQUEST:
         //     return Object.assign({}, state, {
@@ -10,6 +10,7 @@ export default function loginReducer(state = initialState.eventdata, action) {
 		// 	});
             //return state
         case types.EVENTFORM_REQUEST_SUCCESS:
+            console.log("hau",action.payload)
             return Object.assign({}, state, {
                 eventdata: action.payload,
                 requesting: true,

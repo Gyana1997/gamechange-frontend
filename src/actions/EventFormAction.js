@@ -6,11 +6,21 @@ import axios from 'axios';
 export function EventFormRequest(values) {
 	
 	return (dispatch) => {
-		console.log("action data",values)
-		axios.get( 'https://dummyapi.io/data/api/post?limit=10', { headers: {
-                "Content-Type": "application/json",
-                "app-id":"60c30aea52dd087cb345b46c"}
-        })
+
+		let data = { 
+                "participants":values.people,
+                "name":values.eventname,
+                "details":'hfvjgbkhb',
+                "address":'ggkb',
+                "date": values.date
+            
+        }
+		console.log("action data",data)
+		axios.post( 'http://localhost:9001/v1/event/add', data, { headers:{
+				'Content-Type': 'application/json',
+				"Authorization": User.getAuthorization()
+			}
+		})
     	.then((response) => {
     		console.log("event response",response.data)
 			dispatch(EventFormRequestSuccess(response.data));

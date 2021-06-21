@@ -71,13 +71,19 @@ class EventForm extends React.Component {
         
     }
     redirectToDev() {
-        //console.log("redirect",this.props);
-        
+        // console.log("redirect",this.props);
+         this.props.history.push('/event-list');
     }
     render() {
         const { handleSubmit, submitting, error } = this.props;
 
         return (
+            <div>
+            
+            {this.props.eventdata && 
+                this.redirectToDev()
+            }
+
             <div className="formcard">
                 <div className='container'>
                         {this.props.eventdata && 
@@ -89,11 +95,11 @@ class EventForm extends React.Component {
                     <div className="row">
                         <div className="col-md-4 leftcard">
                             <div className="row leftheader">
-                                Let us get in touch !!    
+                                Enter details of your dream event !!    
                             </div>
 
                             <div className="row leftbody">
-                                Lets start the registration for the event
+                                Enter the details of event
                             </div>
                         </div>  
                         <div className="col-md-8 rightcard">
@@ -266,6 +272,11 @@ class EventForm extends React.Component {
                         </div>
                     </div>
                 </div>
+
+            }
+        }
+
+        </div>
             
         );
     }
@@ -291,10 +302,16 @@ let eventForm =  reduxForm({
 
 
 //accessing state from reducer 
-function mapStateToProps(state, ownProps) { 
-    return {
-        eventdata: state.eventdata
-    };
+function mapStateToProps(state, ownProps) {
+    console.log("data kouthi", state) 
+
+    if (state.eventFormReducer.eventdata) {
+        return {
+            eventdata: state.eventFormReducer.eventdata
+        }
+    } else {
+        return {}
+    }
 }
 
 //determines what action available in a component

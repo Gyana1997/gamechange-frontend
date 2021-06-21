@@ -1,0 +1,15 @@
+.event-card {
+	background-color: #fff !important;
+	border: 1px solid #ccc;
+	padding: 20px;
+	float: center;
+	margin-top: 20px;
+	margin-left: 30%;
+	margin-right: 30%;
+	border-radius: 4px;
+}
+
+.eventLabel {
+	font-weight: 750;
+	font-size: 15px;
+}

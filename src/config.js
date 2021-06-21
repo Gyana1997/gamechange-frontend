@@ -3,17 +3,17 @@ import validUrl from "valid-url";
 
 
 //API Url
-export const API_URL = "http://165.227.240.215:9001/v1"
+export const API_URL = "http://localhost:9001/v1"
 
 //User details
 export const User = {
 
-  getAccessToken() {
-    return localStorage.getItem('access_token');
+  getAuthorization() {
+    return localStorage.getItem('Authorization');
   },
 
-  setAccessToken(token) {
-    localStorage.setItem('access_token', token);
+  setAuthorization(token) {
+    localStorage.setItem('Authorization', token);
   },
 
   setName(name) {
@@ -73,4 +73,21 @@ export const Validate = {
       return text1 === text2;
     },
   }
+
+
+  export const EventDb = {
+
+  setEventList(eventList) {
+    localStorage.setItem('eventList', eventList);
+  },
+
+  getEventList() {
+    return localStorage.getItem('eventList');
+  },
+
+  clear() {
+    localStorage.clear();
+  }
+
+}
   

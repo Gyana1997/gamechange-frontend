@@ -6,12 +6,13 @@ import axios from 'axios';
 export function LoginRequest(values) {
 	
 	return (dispatch) => {
-		axios.get( 'https://dummyapi.io/data/api/post?limit=10', { headers: {
-                "Content-Type": "application/json",
-                "app-id":"60c30aea52dd087cb345b46c"}
-        })
+		axios.post('http://localhost:9001/v1/user/signin', {
+		    "email": values.email,
+		    "password": values.password
+		})
     	.then((response) => {
     		console.log("login response",response.data)
+    		User.setAuthorization(response.data.data.token)
 			dispatch(LoginRequestSuccess(response.data));
 		})
 		.catch((error) => {

@@ -2,7 +2,9 @@ import pages from './pages';
 
 const {
     Home,
-    EventPageForm
+    EventPageForm,
+    EventList,
+    EventDetail
 } = pages;
 
 export const groups = [
@@ -40,7 +42,42 @@ export const groups = [
 				index: 1
             }
 		]
+    },
+    {
+    	group: 'EventList',
+		isPublic: true,
+		routes: [
+			{
+				title: 'EventList',
+				path: '/event-list',
+				icon: 'event-list',
+                component: EventList,
+                isExact: true,
+                subRoutes: [],
+				isPublic: true,
+				visible: true,
+				index: 1
+            }
+		]
+    },
+    {
+    	group: 'EventDetail',
+		isPublic: true,
+		routes: [
+			{
+				title: 'EventDetail',
+				path: '/event-detail',
+				icon: 'event-detail',
+                component: EventDetail,
+                isExact: true,
+                subRoutes: [],
+				isPublic: true,
+				visible: true,
+				index: 1
+            }
+		]
     }
+
 
     
 ];
